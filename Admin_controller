@@ -1,0 +1,97 @@
+<?php 
+
+class Base_Controller extends CI_Controller
+{
+	
+	function __construct()
+	{
+		
+		parent::__construct();
+	}
+}
+
+class Home_Controller extends Base_Controller
+{
+	
+	function __construct()
+	{
+		parent::__construct();
+	}
+
+
+	public function Seekers_Session()
+	{
+
+		 if($this->session->userdata('logged_seeker'))
+		   {
+		     $session_data = $this->session->userdata('logged_seeker');
+		     
+		   }
+		   else
+		   {
+		     
+		     redirect('login-seekers');
+		   }
+		
+	}
+
+	public function Employers_Session()
+	{
+
+		 if($this->session->userdata('logged_employers'))
+		   {
+		     $session_data = $this->session->userdata('logged_employers');
+		     
+		   }
+		   else
+		   {
+		     
+		     redirect('login-employers');
+		   }
+		
+	}
+
+
+}
+
+
+
+
+class Admin_Controller extends Base_Controller 
+
+{
+
+	function __construct()
+
+	{
+		parent::__construct();
+             
+	}
+
+
+	
+
+
+	public function session_set()
+	{
+		  
+		 if($this->session->userdata('logged_in'))
+		   {
+		   	 $data['login_name'] = $this->session->userdata();
+		     
+		     $session_data = $this->session->userdata('logged_in');
+		     
+		     
+		   }
+		   else
+		   {
+		     
+		     redirect('webbitech/admin');
+		   }
+
+         
+	}
+
+
+	
+}
