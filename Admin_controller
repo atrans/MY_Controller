@@ -86,7 +86,7 @@ class Admin_Controller extends Base_Controller
 		   else
 		   {
 		     
-		     redirect('webbitech/admin');
+		     redirect('atrans/admin');
 		   }
 
          
